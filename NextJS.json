@@ -1,0 +1,125 @@
+[
+    {
+        "id": "1",
+        "title": "Routing",
+        "description": [
+            "Next.js uses the file system to enable routing in the app. Next automatically treats every file with the extensions .js, .jsx, .ts, or .tsx under the pages directory as a route.",
+            "A page in Next.js is a React component that has a route based on its file name.",
+            "By default, Next.js pre-renders every page to make your app fast and user-friendly. It uses the Link (href='...') component provided by next/link to enable transitions between routes."
+        ]
+    },
+    {
+        "id": "2",
+        "title": "Dynamic routing",
+        "description": [
+            "Defining routes by using predefined paths is not always enough for complex applications. In Next.js you can add brackets to a page ([param]) to create a dynamic route (a.k.a. url slugs, pretty urls, and others).",
+            "Catch all routes can be made optional by including the parameter in double brackets ([[...slug]]).",
+            "We use 'useRouter' to get the 'dynamic path data' from the URL in the dynamic url file."
+        ]
+    },
+    {
+        "id": "3",
+        "title": "Components in Nextjs",
+        "description": [
+            "Components in nextjs work in the similar manner to ReactJS.",
+            "The only gotcha is that we cant save components in pages folder. If we save components in pages folder then they will be treated as pages."
+        ]
+    },
+    {
+        "id": "4",
+        "title": "Styles in NextJS",
+        "description": [
+            "Components in nextjs work in the similar manner to ReactJS.",
+            "The only gotcha is that we cant save components in pages folder. If we save components in pages folder then they will be treated as pages."
+        ]
+    },
+    {
+        "id": "5",
+        "title": "Data Fetching: Pre-rendering",
+        "description": [
+            "NextJS has two types of pre-rendering: Static Generation and Server-side Rendering",
+            "Next.js has three unique functions you can use to fetch data for pre-rendering.",
+            "getStaticProps (Static Generation): Fetch data at build time.",
+            "getStaticPaths (Static Generation): Specify dynamic routes to pre-render pages based on data.",
+            "getServerSideProps (Server-side Rendering): Fetch data on each request."
+        ]
+    },
+    {
+        "id": "6",
+        "title": "Static Generation",
+        "description": [
+            "We use it to pre-render a page (with data prepared on the server-side) during build time.",
+            "Pages are prepared ahead to time and can be cached by the server/CDN serving the app.",
+            "it is done using 'export async function getStaticProps(context){...}",
+            "If you export an async function called getStaticProps from a page, Next.js will pre-render this page at build time using the props returned by getStaticProps.",
+            "getStaticProps returns 'props' object to the main function of the page and this prop can be used to pass server-side data to the main function to consume and generate static page. For example 'reading data from files on server/database and passing that data to the main function of the page to generate the static page.'",
+            "The code inside getStaticProps function will only run on the server side. It will never be fetched to client side and it doesnt have any access to the client side stuff like window property of the browser either.",
+            "You can import modules in top-level scope for use in getStaticProps. Imports used in getStaticProps will not be bundled for the client-side. This means you can write server-side code directly in getStaticProps. This includes reading from the filesystem or a database.",
+            "You should use getStaticProps if: The data required to render the page is available at build time ahead of a user’s request. The data comes from a headless CMS & The data can be publicly cached (not user-specific). Or the page must be pre-rendered (for SEO) and be very fast — getStaticProps generates HTML and JSON files, both of which can be cached by a CDN for performance."
+        ]
+    },
+    {
+        "id": "7",
+        "title": "getStaticPaths",
+        "description": [
+            "If a page has dynamic routes (documentation) and uses getStaticProps it needs to define a list of paths that have to be rendered to HTML at build time.",
+            "If you export an async function called getStaticPaths from a page that uses dynamic routes, Next.js will statically pre-render all the paths specified by getStaticPaths.",
+            "The paths key (required):- The paths key determines which paths will be pre-rendered. ex: export async function getStaticPaths() { return { paths: [{ params: { id: '1' } }, { params: { id: '2' } }],fallback: true, false or blocking}}",
+            "Note that the value for each params must match the parameters used in the page name: If the page name is pages/posts/[postId]/[commentId], then params should contain postId and commentId... etc",
+            "The fallback key (required):- The object returned by getStaticPaths must contain a boolean fallback key. Fallback key can have 'false', 'true' and 'blocking' values. "
+        ]
+    },
+    {
+        "id": "8",
+        "title": "getServerSideProps (Server-side Rendering)",
+        "description": [
+            "If you export an async function called getServerSideProps from a page, Next.js will pre-render this page on each request using the data returned by getServerSideProps.",
+            "getServerSideProps should return an object with: props (optional), redirect (optional) and notFound(optional).",
+            "getServerSideProps can only be exported from a page. You can’t export it from non-page files.",
+            ""
+        ]
+    },
+    {
+        "id": "9",
+        "title": "Data fetching like React",
+        "description": [
+            "You can fetch data in any component on client side like you do in React.",
+            "You can use 'swr' package to fetch data on client side in NextJS."
+        ]
+    },
+    {
+        "id": "6",
+        "title": "Static Generation",
+        "description": [""]
+    },
+    {
+        "id": "6",
+        "title": "Static Generation",
+        "description": [""]
+    },
+    {
+        "id": "6",
+        "title": "Static Generation",
+        "description": [""]
+    },
+    {
+        "id": "6",
+        "title": "Static Generation",
+        "description": [""]
+    },
+    {
+        "id": "6",
+        "title": "Static Generation",
+        "description": [""]
+    },
+    {
+        "id": "6",
+        "title": "Static Generation",
+        "description": [""]
+    },
+    {
+        "id": "6",
+        "title": "Static Generation",
+        "description": [""]
+    }
+]
